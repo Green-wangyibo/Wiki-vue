@@ -1,0 +1,34 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-27 19:33:59
+ * @LastEditTime: 2021-02-24 09:44:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\把map转化为数组.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=new Map([['apple','orage']]);
+        // 1.使用扩展运算符
+        console.log([...arr]);
+        // 2.使用Array.from
+        console.log(Array.from(arr));
+        // 3.for..of遍历，把值赋值给另一个数组
+        var a=[];
+        for(var key of arr){
+            a.push(key)
+        }
+        console.log(a);
+        // var arr1=[1,2,3,4,5,6,7,7,7,7,7];
+        // var z=[...new Set(arr1)];
+        // console.log(z);
+    </script>
+</body>
+</html>

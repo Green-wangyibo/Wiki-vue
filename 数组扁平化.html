@@ -1,0 +1,27 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-30 16:44:32
+ * @LastEditTime: 2021-01-30 17:25:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\数组扁平化.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function flatten(arr){
+            while(arr.some(item=>Array.isArray(item))){
+                arr=[].concat(...arr);
+            }
+            return arr;
+        }
+        console.log(flatten([1,2,[5,4,[6,7,8]]]));
+    </script>
+</body>
+</html>

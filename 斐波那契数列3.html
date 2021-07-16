@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-28 16:19:00
+ * @LastEditTime: 2021-01-30 13:07:20
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\斐波那契数列3.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 斐波那契数列 不缓存值 -->
+    <!-- 思路：从下向上计算 主要是不缓存值 -->
+    <script>
+        // 1,2,3,5,8,13,21,34,,,,,,
+        function fn(num){
+            var n=num-1;
+            if(n<=1){
+                return n+1;
+            }
+            var a=1;
+            var b=2;
+            var result=0;
+            for(var i=2;i<=n;i++){
+                result=a+b;
+                a=b;
+                b=result;
+            }
+            return result;
+        }
+        console.log(fn(44));
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-30 17:42:43
+ * @LastEditTime: 2021-03-23 00:47:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\数组去重.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(arr){
+            var hash=[];
+            var json=[];
+            var keyNum=0;
+            for(var i=0;i<arr.length;i++){
+                var key=arr[i];
+                if(!hash[key]){
+                    json.push(key);
+                    hash[key]=true;
+                }
+            }
+            return json;
+        }
+        console.log(fn([1,2,3,3,4,5,5,7]));
+    </script>
+</body>
+</html>

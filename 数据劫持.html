@@ -1,0 +1,33 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-13 14:46:16
+ * @LastEditTime: 2021-01-13 14:55:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\数据劫持.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var userinfo={
+            name:'yaya'
+        }
+        Object.defineProperty(userinfo,'name',{
+            get:function(){
+                return 888;
+            },
+            set:function(nick){
+                console.log('set');
+                name=nick
+            }
+        })
+        userinfo.name='王一博'
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-18 14:54:17
+ * @LastEditTime: 2021-01-06 20:47:06
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\节流.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 防抖 -->
+    <input type="text">
+    <input type="submit" id='btn'>
+    <script>
+        var btn=document.getElementById('btn');
+        // btn.addEventListener('click',submit,false);
+        btn.addEventListener('click',throttle(submit,1000),false)
+        function submit(e){
+            // console.log(this);
+            // console.log(e);
+            console.log(e,this);
+        }
+        function throttle(fn,timer){
+            var timeout=0
+            return function(){
+                var newtime=new Date().getTime()//得到当前的毫秒数
+                console.log(newtime-timeout);
+                if(newtime-timeout>timer){
+                    fn.apply(this,arguments)
+                    timeout=newtime;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

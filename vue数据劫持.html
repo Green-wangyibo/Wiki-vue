@@ -1,0 +1,125 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-17 11:59:35
+ * @LastEditTime: 2021-01-17 16:15:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\vue数据劫持.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 发布
+        class Dep{
+            constructor(){
+                this.subs=[];
+            }
+            addsubs(sub){
+                if(this.subs.indexOf(sub)<0){
+                    this.subs.push(sub);
+                }
+            }
+            notify(){
+                this.subs.forEach(item=>{item.update()})
+            }
+        }
+        Dep.target=null;
+        // 订阅者
+        class Watcher{
+            constructor(obj,key,updateCb){
+                this.data=obj;
+                this.key=key;
+                this.updateCb=updateCb;
+                this.value=null;
+                this.get();
+            }
+            get(){
+                Dep.target=this;
+                this.value=this.data[this.key];
+                Dep.target=null;
+                return this.value;
+            }
+            update(){
+                const oldValue=this.value;
+                const newValue=this.get();
+                this.updateCb(newValue,oldValue);
+            }
+        }
+        // observer类数据劫持
+        class Observer{
+            constructor(obj){
+                this.data=obj;
+                if(this.data==null || typeof this.data !== "object"){
+                    return;
+                }
+                // 数组监测
+                if(Array.isArray(this.data)){
+                    this.observeArray()
+                }
+                else{
+                    // 对象监测
+                    this.walk()
+                }
+            }
+            // 对象监测方法
+            walk(){
+                for(let i in this.data){
+                    // 数据劫持
+                    this.defineReactive(this.data,i)
+                }
+            }
+            // 数组监测方法
+            observeArray(){
+                for(let i=0;i<this.data.length;i++){
+                    // 调用函数，监测数组里面的元素
+                    observer(this.data[i])
+                }
+            }
+            defineReactive(obj,key){
+                var val=obj[key];
+                observe(val);
+                var dep=new Dep();
+                Object.defineProperty(obj,key,{
+                    get(){
+                        // 这里的Dep是要大写的
+                        if(Dep.target){
+                            dep.addsubs(Dep.target)
+                        }
+                        return val;
+                    },
+                    set(newVal){
+                        if(newVal===val){
+                            return val;
+                        }
+                        val=newVal;
+                        observe(val);
+                        dep.notify();
+                    }
+                })
+            }
+        }
+        // 数据监测方法
+        function observe(data){
+            new Observer(data);
+        }
+        // 写一个最简单的例子
+        var obj={
+            name:'aaaa'
+        }
+        observe(obj);
+        new Watcher(obj,"name",(newVal,oldVal)=>{
+            console.log("newVal",newVal);
+            console.log("oldVal",oldVal);
+        })
+        obj.name='bbbb';
+
+        
+    </script>
+</body>
+</html>

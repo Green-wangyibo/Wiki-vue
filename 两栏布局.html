@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.右侧设置margin-left */
+        /* .left{
+            width: 300px;
+            height: 150px;
+            background-color: chartreuse;
+            float: left;
+        }
+        .right{
+            height: 150px;
+            background-color: pink;
+            margin-left:300px;
+        } */
+        /* 2.right设置BFC overflow:hidden */
+        /* .left{
+            width: 300px;
+            height: 150px;
+            background-color: pink;
+            float: left;
+        }
+        .right{
+            height: 150px;
+            background-color: blue;
+            overflow: hidden; 
+        } */
+        /* 3.利用定位来实现 right left:300px right:0 */
+        .container{
+            position: relative;
+        }
+        /* .left{
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            left: 0;
+            background-color: burlywood;
+        }
+        .right{
+            position: absolute;
+            height: 160px;
+            left: 300px;
+            right: 0;
+            background-color: chartreuse;
+        } */
+        /* 4.利用flex布局 right方写flex:1占据剩下的所有 */
+        /* .container{
+            display: flex;
+        }
+        .left{
+            width: 300px;
+            height: 150px;
+            background-color: burlywood;
+        }
+        .right{
+            flex: 1;
+            height: 160px;
+            background-color: chartreuse;
+        } */
+        /* 5.table布局 */
+        .container{
+            display: table;
+            width: 100%;
+        }
+        .left{
+            display: table-cell;
+            width: 300px;
+            height: 150px;
+            background-color: burlywood;
+        }
+        .right{
+            display: table-cell;
+            background-color: chartreuse;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

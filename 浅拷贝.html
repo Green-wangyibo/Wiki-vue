@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        浅拷贝学习总结
+          ！！！！只拷贝一层,更深层次的对象，只拷贝引用(地址)！！！！
+        这里特殊说明 虽然数组属于对象，但是浅拷贝完之后，改变新拷贝的属性值，原来旧的数组中的值不改变
+          可以理解因为数组只有一层(我是这么理解的)
+        */
+        var obj={
+            id:1,
+            name:'浅拷贝',
+            msg:{
+                age:18
+            },
+            hobby:['pink','green','blue']
+        }
+        var o={};
+        // for(var k in obj){
+        //     o[k]=obj[k]
+        // }
+        // o.name='王一博';
+        // o.id=2
+        // o.msg.age=99
+        // o.hobby=['sleeping']
+        // //  浅拷贝es6 语法糖
+        Object.assign(o,obj)    
+        console.log(o);
+        console.log(obj);
+    </script>
+</body>
+</html>

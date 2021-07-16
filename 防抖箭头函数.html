@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-18 14:39:43
+ * @LastEditTime: 2020-12-18 14:56:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\防抖箭头函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 防抖 -->
+    <input type="text">
+    <input type="submit" id='btn'>
+    <script>
+        var btn=document.getElementById('btn');
+        // btn.addEventListener('click',submit,false);
+        btn.addEventListener('click',debounce(submit,1000),false)
+        function submit(e){
+            // console.log(this);
+            // console.log(e);
+            console.log(1);
+        }
+        function debounce(fn,timer){
+            // 点击才执行这个匿名函数
+            var timeout=null;
+            var flag=true;
+            return function(){
+                // console.log(arguments[0]);
+                // console.log(this);
+                if(flag){ 
+                    flag=false;
+                    fn.apply(this,arguments);
+                }
+                clearTimeout(timeout);
+                timeout=setTimeout(()=>{
+                    flag=true
+                }, timer);
+            }
+        }
+    </script>
+</body>
+</html>

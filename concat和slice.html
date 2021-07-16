@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1.concat()方法对当前数组创建一个副本,对副本值的改变不会影响原数组(对于复制对象不起作用 报错)
+        （1）无参数时，完整的把原数组拷贝的一份
+        （2）有参数时，副本在原数组的基础之上添加了新数据（参数）
+        */
+     var hobby=['你好'];
+      var o=hobby.concat();
+      var b=hobby.concat('pink',['green','blue'])
+      console.log(hobby);
+      console.log(o);
+      console.log(b);
+    /*
+    2.slice()方法 只对于数组起作用
+    */
+    var obj=['牛肉','火腿','鸡蛋','面包'];
+    // 完全拷贝obj
+    var a=obj.slice(); 
+    // 从索引1开始一直截取到数组最后
+    var b=obj.slice(1); 
+    // 从索引为1开始截取至索引3前结束 (不包含索引3的值)
+    var c=obj.slice(1,3);
+    console.log(a); // ['牛肉','火腿','鸡蛋','面包']
+    console.log(b);//[火腿','鸡蛋','面包']
+    console.log(c); //[火腿','鸡蛋']
+    </script>
+</body>
+</html>

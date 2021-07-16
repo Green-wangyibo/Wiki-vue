@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-16 15:16:51
+ * @LastEditTime: 2020-12-16 15:48:42
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\闭包li.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>aaaa</li>
+        <li>bbbb</li>
+        <li>cccc</li>
+        <li>dddd</li>
+    </ul>
+    <script>
+        // var li=document.querySelectorAll('li');
+        // for(var i=0;i<li.length;i++){
+        //     (function(i){
+        //         li[i].onclick=function(){
+        //         console.log(i);
+        //     }
+        //     })(i)
+        // }
+        for(var i=0;i<5;i++){
+            setTimeout(function(){
+                console.log(i++);
+            })
+        }
+    </script>
+</body>
+</html>

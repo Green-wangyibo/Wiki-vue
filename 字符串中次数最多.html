@@ -1,0 +1,45 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-30 15:54:56
+ * @LastEditTime: 2021-01-30 16:30:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\字符串中次数最多.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // var str='abcbcded';
+    function fn(str){
+        var hash=[];
+        var max=-1;
+        var max_key='';
+        for(var i=0;i<str.length;i++){
+           var key=str[i];
+           if(!hash[key]){
+               hash[key]=1;
+               hash.push[{key:1}]
+           }
+           else{
+               hash[key]++;
+           }
+        }
+        for(var key in hash){
+            if(hash[key]>max){
+                max=hash[key];
+                max_key=key;
+            }
+        }
+        // return hash;
+        return max_key+':'+max;
+    }
+    console.log(fn('abcbcdedbbbb'));
+    </script>
+</body>
+</html>

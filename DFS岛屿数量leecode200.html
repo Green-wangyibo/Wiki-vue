@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-28 18:49:36
+ * @LastEditTime: 2021-01-28 20:03:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\DFS岛屿数量.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFS岛屿数量</title>
+</head>
+<body>
+    <!-- DFS:深度优先搜索 二维数组 1陆地 0水-->
+    <script>
+        function isLand(grid){
+            function dfs(row,col){
+                if(row<0||row>=grid.length||col<0||col>=grid[0].length||grid[row][col]==="0"){
+                    return;
+                }
+                grid[row][col]="0";
+                dfs(row-1,col);
+                dfs(row+1,col);
+                dfs(row,col-1);
+                dfs(row,col+1);
+            }
+            var count=0;
+            for(var row=0;row<grid.length;row++){
+                for(var col=0;col<grid[0].length;col++){
+                    if(grid[row][col]==="1"){
+                        count++;
+                        dfs(row,col);
+                    }
+                }
+            }
+            return count;
+        }
+        console.log(isLand([["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]));
+        // console.log(isLand([[1,1,1,1,0],[1,1,0,1,0],[1,1,0,0,0],[0,0,0,0,0]]));//数字不行 Maximum call stack size exceeded
+
+    </script>
+</body>
+</html>

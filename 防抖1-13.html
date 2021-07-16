@@ -1,0 +1,64 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-13 11:31:54
+ * @LastEditTime: 2021-01-13 13:52:35
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\防抖1-13.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" change="bian">
+    <!-- <input type="submit" id="submit"> -->
+    <script>
+        // var btn=document.getElementById('submit')
+        var ipt=document.getElementById('input')
+        // ipt.addEventListener('input',bian)
+        ipt.addEventListener('input',debounce(bian),false)
+        function bian(e){
+            console.log(e);
+            console.log(this);
+        }
+        function debounce(fn){
+            var time=null
+            var flag=true
+            return function(){
+                if(flag){
+                    flag=false
+                    fn.apply(this,arguments)
+                }
+                clearTimeout(time)
+                time=setTimeout(()=>{
+                    flag=true
+                },2000)
+            }
+        }
+        // btn.addEventListener('click',debonce(submit),false)
+        // btn.addEventListener('click',submit,false)
+        // function submit(){
+        //     console.log(1);
+        //     console.log(this);
+        //     console.log(arguments[0]);
+        // }
+        // function debonce(fn){
+        //     var time=null
+        //     var flag=true
+        //     return function(){
+        //         if(flag){
+        //             fn.apply(this,arguments)
+        //         }
+        //         clearTimeout(time)
+        //         time=setTimeout(()=>{
+        //             flag=true
+        //         },1000)
+        //     }
+        // }
+    </script>
+</body>
+</html>

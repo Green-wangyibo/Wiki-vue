@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-28 15:27:57
+ * @LastEditTime: 2021-01-28 16:17:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\斐波那契数列1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 斐波那契数列  动态规划=递归+记忆化(数组缓存值) -->
+    <!-- 思路：从当前元素开始出发，从上向下寻找对应的值 -->
+    <script>
+        // 1,2,3,5,8,13,21,34,,,,,,,,,计算第n个数的值
+        function fn(num){
+            var n=num-1; //  传进来的数-1，因为数组索引是从0开始的
+            if(n<=1){
+                return n+1;
+            }
+            var cache=[];
+            cache[0]=1;
+            cache[1]=2;
+            function morize(number){
+                var t=number;
+                if(cache[number]!==undefined){
+                    return cache[number];
+                }
+                cache[number]=morize(number-1)+morize(number-2);
+                return cache[number];
+            }
+            var result=morize(n);
+            return result;
+        }
+        console.log(fn(4));
+    </script>
+</body>
+</html>

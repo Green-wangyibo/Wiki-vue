@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-20 14:47:09
+ * @LastEditTime: 2021-01-06 22:22:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\双飞翼布局.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            float: left;
+            width: 100%;
+            background-color: pink;
+        }
+        .son{
+            margin: 0  300px;
+        }
+        .left{
+            float: left;
+            width: 300px;
+            background-color: red;
+            margin-left: -100%;
+        }
+        .right{
+            float: left;
+            width: 300px;
+            background-color: #0f0;
+            margin-left: -300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="main">
+            <div class="son">main</div>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body> 
+</html>

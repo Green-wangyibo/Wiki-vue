@@ -1,0 +1,57 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-02-22 15:47:43
+ * @LastEditTime: 2021-03-22 23:56:48
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\玻璃球.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getMin(a,b) {
+            var images=new Array();//先声明一维数组
+	// -----首先要初始化变量-----
+	// a颗珠子
+	for (var i=0; i <= a;i++) {
+        images[i]=new Array(); //再声明二维数组
+		// b层楼
+		for (var j = 0; j <= b; j++) {
+			if (i == 0 || j == 0) {
+				images[i][j] = 0;
+			} else if (i == 1) {
+				images[i][j] = j;
+			} else if (j == 1){
+				images[i][j] = 1;
+			}
+		}
+	}
+	// -----进行迭代-----
+	// a颗珠子
+	for (var i = 2; i <= a; i++) {
+		// b层楼
+		for (var j = 2; j <= b; j++) {
+			var min = Number.MAX_VALUE;
+			for (var k = 1; k <= j; k++) {
+				var max = Math.max(images[i-1][k-1]+1, images[i][j-k]+1);
+				if (max < min) {
+					min = max;
+				}
+			}
+			images[i][j] = min;
+		}
+	}
+	return images[a][b];
+}
+console.log(getMin(200,150));
+
+    </script>
+</body>
+</html>

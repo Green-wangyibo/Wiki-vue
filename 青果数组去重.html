@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-02-22 14:31:19
+ * @LastEditTime: 2021-02-22 15:22:19
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\青果数组去重.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function removeDuplicates(nums){
+        //     var ret=[];
+        //     end=nums[0];
+        //     ret.push(nums[0]);
+        //     for(var i=0;i<nums.length;i++){
+        //         if(nums[i]!=end){
+        //             ret.push(nums[i]);
+        //             end=nums[i];
+        //         }
+        //     }
+        //     return ret;
+        // }
+        function removeDuplicates(nums){
+            if(nums.length<=0){
+                return 0;
+            }
+            var j=1;
+            for(var i=1;i<nums.length;i++){
+                if(nums[i]!==nums[j-1]){
+                    nums[j]=nums[i];
+                    j++;
+                }
+    }
+    nums.splice(j-1,nums.length-j);
+        return nums;
+}
+        console.log(removeDuplicates([1,1,2,2,2,4,4,4]));
+    </script>
+</body>
+</html>

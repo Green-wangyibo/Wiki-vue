@@ -1,0 +1,28 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-29 21:30:20
+ * @LastEditTime: 2021-07-16 16:19:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\map.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var map=new Map();
+        var arr=[2,7,11,15];
+        var target=9;
+        for(var i=0;i<arr.length;i++){
+            map.set(arr[i],i)
+        }   
+        console.log(map.has(2));
+        console.log(Array.from(map));
+    </script>
+</body>
+</html>

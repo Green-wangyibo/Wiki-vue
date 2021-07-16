@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-18 09:57:37
+ * @LastEditTime: 2021-01-06 20:50:59
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\防抖普通函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 防抖 -->
+    <input type="text">
+    <input type="submit" id='btn'>
+    <script>
+        var btn=document.getElementById('btn');
+        // btn.addEventListener('click',submit,false);
+        btn.addEventListener('click',debounce(submit),false)
+        function submit(e){
+            // console.log(this);
+            // console.log(e);
+            console.log(1);
+        }
+        function debounce(fn){
+            // 点击才执行这个匿名函数
+            var timeout=null;
+            var flag=true; //函数立即执行标志位
+            return function(){
+                var that=this;
+                var args=arguments;
+                console.log(arguments[0]);
+                // console.log(this);
+                if(flag){ 
+                    flag=false;
+                    fn.apply(that,args);
+                }
+                clearTimeout(timeout);
+                timeout=setTimeout(function(){
+                    flag=true
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>

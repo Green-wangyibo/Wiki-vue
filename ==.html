@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-27 19:27:49
+ * @LastEditTime: 2021-01-27 20:16:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \面试code\==.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1];
+        if(arr){
+            console.log(arr==true);
+        }else{
+            console.log(arr);
+        }
+        function fn(arr){
+            arr=(b=5);
+            return arr+b; //arr为5，b为5
+        }
+        console.log(fn(arr));//10
+        // console.log(arr);
+        // console.log(b);
+        // console.log([1]==1);
+        // a=2;
+        // a=(b=5);
+        // console.log(a);//5
+        // console.log(b);//5
+    </script>
+</body>
+</html>
