@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-30 16:44:32
- * @LastEditTime: 2021-01-30 17:25:36
+ * @LastEditTime: 2021-07-17 14:35:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \面试code\数组扁平化.html
@@ -16,12 +16,13 @@
 <body>
     <script>
         function flatten(arr){
-            while(arr.some(item=>Array.isArray(item))){
-                arr=[].concat(...arr);
-            }
-            return arr;
+            let result = []
+        arr.forEach(item => {
+            Array.isArray(item) ? result=result.concat(flatten(item)) : result=result.concat(item)
+        });
+        return result
         }
-        console.log(flatten([1,2,[5,4,[6,7,8]]]));
+        console.log(flatten([1,2,[5,4,[6,7,8]]]));     
     </script>
 </body>
 </html>
