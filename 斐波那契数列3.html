@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-28 16:19:00
- * @LastEditTime: 2021-01-30 13:07:20
+ * @LastEditTime: 2021-07-25 17:38:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \面试code\斐波那契数列3.html
@@ -18,13 +18,13 @@
     <!-- 思路：从下向上计算 主要是不缓存值 -->
     <script>
         // 1,2,3,5,8,13,21,34,,,,,,
-        function fn(num){
-            var n=num-1;
+        function fn(n){
+            // var n=num-1;
             if(n<=1){
-                return n+1;
+                return n;
             }
-            var a=1;
-            var b=2;
+            var a=0;
+            var b=1;
             var result=0;
             for(var i=2;i<=n;i++){
                 result=a+b;
@@ -33,7 +33,7 @@
             }
             return result;
         }
-        console.log(fn(44));
+        console.log(fn(4));
     </script>
 </body>
 </html>

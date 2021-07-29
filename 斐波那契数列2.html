@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-28 16:03:33
- * @LastEditTime: 2021-01-28 16:28:31
+ * @LastEditTime: 2021-07-25 17:09:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \面试code\斐波那契数列2.html
@@ -18,14 +18,14 @@
     <!-- 思路：从下向上依次寻找值 -->
     <script>
         // 1,2,3,5,8,13,,,,,,,,
-        function fn(num){
-            var n=num-1; //传进来的值要-1,因为数组索引是从0开始的
+        function fn(n){
+            // var n=num-1; //传进来的值要-1,因为数组索引是从0开始的
             if(n<=1){
-                return n+1;
+                return n;
             }
             var cache=[];
-            cache[0]=1;
-            cache[1]=2;
+            cache[0]=0;
+            cache[1]=1;
             if(cache[n]!==undefined){
                 return cache[n];
             }
@@ -34,7 +34,7 @@
             }
             return cache[n];
         }
-        console.log(fn(6));
+        console.log(fn(4));
     </script>
 </body>
 </html>

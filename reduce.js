@@ -16,7 +16,7 @@
 // },[])
 // console.log(newArr);
 // 4.计算数组中每个元素出现的次数,并找出出现次数最多的元素值
-var arr = [1,2,2,3,6,6,7,8,4,4,4]
+var arr = [1,2,2,2,3,6,6,7,8,4,4,4]
 var max = -1
 var max_key =''
 var count = arr.reduce((preValue,currentValue) => {
@@ -36,4 +36,3 @@ for(var key in count){
 }
 console.log('出现的最多的次数',max);
 console.log('出现最多次数的元素值',max_key);
-
